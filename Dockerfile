@@ -18,7 +18,7 @@
 #    http://172.17.0.1:8891
 #
 FROM ubuntu:16.04
-MAINTAINER pietro.delsante_AT_gmail.com
+MAINTAINER scott_AT_scottcain.net
 ENV DEBIAN_FRONTEND noninteractive
 EXPOSE 8891
 
@@ -26,8 +26,10 @@ RUN apt-get update && \
     apt-get -y install curl && \
     curl -sL https://deb.nodesource.com/setup_4.x | /bin/bash - && \
     apt-get -y install nodejs build-essential xvfb libfontconfig1 && \
-    npm install -g slimerjs@0.906.2 && \
-    npm install -g phantomjs@2.1.7 && \
-    npm install -g manet@0.4.15
+    apt-get -y install git && \
+    npm install -g slimerjs@0.10.2 && \
+    npm install -g phantomjs-prebuilt@2.1.7 && \
+#    npm install -g manet@0.4.19
+    npm install -g https://github.com/scottcain/manet.git
 
 ENTRYPOINT ["/usr/bin/manet"]
