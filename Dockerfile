@@ -26,10 +26,11 @@ RUN apt-get update && \
     apt-get -y install curl && \
     curl -sL https://deb.nodesource.com/setup_4.x | /bin/bash - && \
     apt-get -y install nodejs build-essential xvfb libfontconfig1 && \
-    apt-get -y install git && \
+    apt-get -y install git imagemagick && \
     npm install -g slimerjs@0.10.2 && \
     npm install -g phantomjs-prebuilt@2.1.7 && \
 #    npm install -g manet@0.4.19
     npm install -g https://github.com/scottcain/manet.git
+#    npm install -g https://github.com/alliance-genome/manet.git
 
 ENTRYPOINT ["/usr/bin/manet"]
